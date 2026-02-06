@@ -20,7 +20,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav {
@@ -62,8 +62,7 @@ nav ul li a:hover {
 }
 
 .logo-img {
-    height: 60px;
-    /* Tamanho discreto e elegante para o menu */
+    height: 60px; /* Tamanho discreto e elegante para o menu */
     width: auto;
     object-fit: contain;
 }
@@ -82,16 +81,14 @@ nav ul li a:hover {
 
 /* Estilo do Balão (Popover) */
 .contact-popover {
-    display: none;
-    /* Escondido por padrão */
+    display: none; /* Escondido por padrão */
     position: absolute;
-    top: 130%;
-    /* Fica logo abaixo do texto */
+    top: 130%; /* Fica logo abaixo do texto */
     right: 0;
     background: white;
     padding: 12px 18px;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     z-index: 1000;
     border: 1px solid #f2e8df;
     animation: fadeIn 0.3s ease;
@@ -144,49 +141,34 @@ nav ul li a:hover {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 footer {
-    background-color: #f2e8df;
-    /* Bege da identidade visual */
+    background-color: #f2e8df; /* Bege da identidade visual */
     padding: 60px 10% 20px;
     border-top: 1px solid rgba(139, 115, 85, 0.2);
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.2fr 1.5fr 1fr;
-    /* Distribuição de espaço equilibrada */
+    grid-template-columns: 1.2fr 1.5fr 1fr; /* Distribuição de espaço equilibrada */
     gap: 40px;
-    align-items: flex-start;
-    /* Alinha o topo de todas as colunas */
+    align-items: flex-start; /* Alinha o topo de todas as colunas */
 }
 
 /* Títulos das colunas */
-.footer-title,
-.footer-subtitle {
-    color: #8b7355;
-    /* Bronze da logo */
+.footer-title, .footer-subtitle {
+    color: #8b7355; /* Bronze da logo */
     margin-bottom: 20px;
     font-weight: 700;
 }
 
-.footer-title {
-    font-size: 1.5rem;
-}
-
-.footer-subtitle {
-    font-size: 0.9rem;
-    text-transform: uppercase;
+.footer-title { font-size: 1.5rem; }
+.footer-subtitle { 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
     letter-spacing: 1px;
 }
 
@@ -197,8 +179,7 @@ footer {
     list-style: none;
 }
 
-.footer-info,
-.footer-column li {
+.footer-info, .footer-column li {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 10px;
@@ -223,7 +204,7 @@ footer {
 .footer-bottom {
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0,0,0,0.05);
     text-align: center;
     font-size: 0.8rem;
     color: #999;
@@ -235,7 +216,6 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
     .specialties-grid {
         grid-template-columns: 1fr;
     }
@@ -258,15 +238,14 @@ footer {
 }
 
 .logo-img-footer {
-    height: 60px;
-    /* Um pouco maior no rodapé */
+    height: 60px; /* Um pouco maior no rodapé */
     width: auto;
     /* filter: grayscale(1) brightness(0.5); Opcional: deixa a logo sutil no rodapé */
 }
 
 /* Hero Section (Topo) */
 .hero {
-    height: 100vh;
+    height:100vh;   
     padding-top: 80px;
     background-color: #f2e8df;
     position: relative;
@@ -289,8 +268,7 @@ footer {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    /* Garante espaço para o texto e foto */
+    grid-template-columns: 1.2fr 0.8fr; /* Garante espaço para o texto e foto */
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -318,8 +296,8 @@ footer {
     transition: 0.3s;
 }
 
-.btn-cta:hover {
-    transform: scale(1.1);
+.btn-cta:hover{
+       transform: scale(1.1);
 }
 
 .hero-stats {
@@ -362,7 +340,15 @@ footer {
     width: 60%;
     height: 102%;
     margin-right: -30%;
-    background: linear-gradient(to right, rgba(242, 232, 223, 0) 0%, rgba(242, 232, 223, 0.2) 25%, rgba(242, 232, 223, 0.6) 50%, #f2e8df 85%);
+
+    background: linear-gradient(
+        to right,
+        rgba(242,232,223,0) 0%,
+        rgba(242,232,223,0.2) 25%,
+        rgba(242,232,223,0.6) 50%,
+        #f2e8df 85%
+    );
+
     pointer-events: none;
 }
 
@@ -372,24 +358,18 @@ footer {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
-    .hero-image-wrapper {
-        display: none;
-    }
-
-    /* Esconde imagem no mobile para não buggar */
-    .hero-stats {
-        flex-direction: column;
-        gap: 10px;
-    }
+    .hero-image-wrapper { display: none; } /* Esconde imagem no mobile para não buggar */
+    .hero-stats { flex-direction: column; gap: 10px; }
 }
+
+
 
 /* Garante que o fundo escuro cubra tudo mesmo fora do header */
 .about-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
     backdrop-filter: blur(8px);
     z-index: 10000;
     align-items: center;
@@ -399,7 +379,6 @@ footer {
 .about-overlay.active {
     display: flex;
 }
-
 /* A Janela Centralizada */
 .about-modal {
     position: relative;
@@ -417,8 +396,7 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    opacity: 0.12;
-    /* Quase invisível, apenas textura */
+    opacity: 0.12; /* Quase invisível, apenas textura */
     z-index: 1;
     pointer-events: none;
 }
@@ -450,8 +428,7 @@ footer {
     background: none;
     border: none;
     font-size: 30px;
-    color: #8b7355;
-    /* Bronze da marca */
+    color: #8b7355; /* Bronze da marca */
     cursor: pointer;
     z-index: 99;
     transition: transform 0.2s, color 0.2s;
@@ -485,24 +462,15 @@ footer {
 .about-wrapper:hover .about-overlay:not(.force-hide) {
     display: flex;
 }
-
 /* Animação de Surgimento */
 @keyframes modalPop {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 /* Fechar no Mobile (X) */
 .close-modal {
-    display: none;
-    /* Só aparece se quiser forçar o clique para fechar */
+    display: none; /* Só aparece se quiser forçar o clique para fechar */
 }
 
 /* Botão WhatsApp */
@@ -526,8 +494,7 @@ footer {
 #tratamentos {
     padding: 80px 0;
     background-color: #f9fbfd;
-    overflow: hidden;
-    /* Garante que nada saia da tela */
+    overflow: hidden; /* Garante que nada saia da tela */
 }
 
 #tratamentos .section-title {
@@ -544,10 +511,8 @@ footer {
 
 /* O "Trilho" que contém todos os 16 cards em linha */
 .especialidades-track {
-    display: flex;
-    /* Força os cards a ficarem um ao lado do outro */
-    width: max-content;
-    /* Faz o container ter a largura exata da soma dos cards */
+    display: flex; /* Força os cards a ficarem um ao lado do outro */
+    width: max-content; /* Faz o container ter a largura exata da soma dos cards */
     animation: scroll-infinito 40s linear infinite;
 }
 
@@ -557,24 +522,20 @@ footer {
 }
 
 .especialidade-card {
-    width: 320px;
-    /* Largura fixa para o cálculo funcionar */
-    margin: 0 15px;
-    /* Espaçamento lateral */
-    flex-shrink: 0;
-    /* IMPEDE que o navegador esprema os cards */
+    width: 320px; /* Largura fixa para o cálculo funcionar */
+    margin: 0 15px; /* Espaçamento lateral */
+    flex-shrink: 0; /* IMPEDE que o navegador esprema os cards */
     background: #fff;
     padding: 40px 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     text-align: center;
     border: 1px solid #f2e8df;
 }
 
 /* Ajuste das cores que estavam azuis nas imagens anteriores */
 .especialidade-card h3 {
-    color: #8b7355 !important;
-    /* Força o bronze da marca */
+    color: #8b7355 !important; /* Força o bronze da marca */
     margin-bottom: 15px;
     font-size: 1.3rem;
     font-weight: 700;
@@ -591,13 +552,13 @@ footer {
     0% {
         transform: translateX(0);
     }
-
     100% {
         /* Move exatamente a largura de 8 cards (a metade do total) */
         /* Card (320px) + Margens (30px) = 350px por item */
         transform: translateX(calc(-350px * 8));
     }
 }
+
 
 #resultados {
     padding: 100px 5%;
@@ -607,8 +568,7 @@ footer {
 
 .section-title {
     font-size: 2.5rem;
-    color: #8b7355;
-    /* Bronze da marca */
+    color: #8b7355; /* Bronze da marca */
     margin-bottom: 10px;
 }
 
@@ -621,25 +581,19 @@ footer {
 .results-slider {
     display: flex;
     gap: 30px;
-    overflow-x: auto;
-    /* Permite scroll lateral no mobile */
+    overflow-x: auto; /* Permite scroll lateral no mobile */
     padding-bottom: 30px;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    /* Esconde scroll no Firefox */
+    scrollbar-width: none; /* Esconde scroll no Firefox */
 }
 
-.results-slider::-webkit-scrollbar {
-    display: none;
-}
+.results-slider::-webkit-scrollbar { display: none; } /* Esconde scroll no Chrome/Safari */
 
-/* Esconde scroll no Chrome/Safari */
 .result-card {
     background: #fff;
     border: 1px solid #f2e8df;
     transition: all 0.4s ease;
 }
-
 .result-card:hover {
     transform: translateY(-10px);
 }
@@ -650,13 +604,10 @@ footer {
     object-fit: cover;
     border-bottom: 3px solid #f2e8df;
 }
-
 .result-card img {
-    filter: brightness(0.95);
-    /* Deixa a foto mais integrada ao site */
+    filter: brightness(0.95); /* Deixa a foto mais integrada ao site */
     transition: 0.4s;
 }
-
 .result-card:hover img {
     filter: brightness(1);
     transform: scale(1.02);
@@ -695,8 +646,7 @@ footer {
     flex-direction: column-reverse;
     align-items: center;
     gap: 15px;
-    padding-top: 20px;
-    /* Área de segurança para o mouse */
+    padding-top: 20px; /* Área de segurança para o mouse */
 }
 
 /* Botão Principal (+) */
@@ -710,7 +660,7 @@ footer {
     align-items: center;
     color: white;
     font-size: 24px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -728,8 +678,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Animação mais fluida */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação mais fluida */
 }
 
 .fab-container:hover .fab-options {
@@ -748,7 +697,7 @@ footer {
     color: white;
     font-size: 22px;
     text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
 }
 
@@ -756,34 +705,25 @@ footer {
     transform: scale(1.1);
 }
 
-.fab-whatsapp {
-    background-color: #25d366;
-}
-
-.fab-instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
+.fab-whatsapp { background-color: #25d366; }
+.fab-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 
 /* Estilização do Balão (Tooltip) */
 .fab-tooltip {
     position: absolute;
-    right: 70px;
-    /* Joga o balão para a esquerda do botão */
-    background-color: #25d366;
-    /* Cor do WhatsApp */
+    right: 70px; /* Joga o balão para a esquerda do botão */
+    background-color: #25d366; /* Cor do WhatsApp */
     color: white;
     padding: 8px 15px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    white-space: nowrap;
-    /* Impede o texto de quebrar linha */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Impede o texto de quebrar linha */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateX(10px);
     transition: all 0.3s ease;
-    pointer-events: none;
-    /* O mouse ignora o balão e foca no botão */
+    pointer-events: none; /* O mouse ignora o balão e foca no botão */
 }
 
 /* Triângulo do balão (a pontinha) */
@@ -821,8 +761,7 @@ footer {
 
 /* Ajuste da setinha (triângulo) do balão do Instagram */
 .fab-button.fab-instagram .fab-tooltip::after {
-    border-left-color: #d12d4a;
-    /* Cor sólida para combinar com o final do gradiente */
+    border-left-color: #d12d4a; /* Cor sólida para combinar com o final do gradiente */
 }
 
 /* Balão do WhatsApp (mantém o verde) */
@@ -836,19 +775,16 @@ footer {
 
 /* Estilo do Visualizador de Imagem */
 #image-viewer {
-    display: none;
-    /* Escondido por padrão */
+    display: none; /* Escondido por padrão */
     position: fixed;
-    z-index: 10001;
-    /* Acima do botão de WhatsApp */
+    z-index: 10001; /* Acima do botão de WhatsApp */
     padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* Fundo preto opaco */
+    background-color: rgba(0,0,0,0.9); /* Fundo preto opaco */
     cursor: zoom-out;
 }
 
@@ -863,13 +799,8 @@ footer {
 }
 
 @keyframes zoom {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
+    from {transform:scale(0)}
+    to {transform:scale(1)}
 }
 
 .close {
@@ -884,72 +815,12 @@ footer {
 }
 
 .close:hover {
-    color: #8b7355;
-    /* Bronze da Dra. Livia ao passar o mouse */
-}
-
-/* ================= AJUSTES PARA CELULAR ================= */
-@media (max-width: 768px) {
-
-    /* 1. Ajuste do Texto Principal (Hero) */
-    .hero-content h1 {
-        font-size: 1.8rem !important;
-        /* Diminui o título para não quebrar */
-        line-height: 1.2;
-    }
-
-    .hero-container {
-        padding: 20px;
-        text-align: center;
-    }
-
-    /* 2. Ajuste do Modal "Sobre Mim" */
-    .about-modal {
-        width: 95% !important;
-        /* Ocupa quase a largura toda */
-        padding: 30px 20px !important;
-        /* Diminui o respiro interno */
-        max-height: 90vh;
-        /* Não deixa o modal ser maior que a tela */
-        overflow-y: auto;
-        /* Permite rolar se o texto for longo */
-    }
-
-    .modal-content h3 {
-        font-size: 1.4rem;
-    }
-
-    .modal-content p {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    /* 3. Ajuste das Imagens de Resultados */
-    .results-slider {
-        display: flex;
-        flex-direction: column;
-        /* Coloca um embaixo do outro no celular */
-        gap: 20px;
-    }
-
-    .result-card {
-        width: 100% !important;
-    }
-
-    /* 4. Ajuste da Logo no Topo */
-    .logo-text {
-        font-size: 1.1rem;
-    }
-
-    .logo-img {
-        height: 35px;
-    }
+    color: #8b7355; /* Bronze da Dra. Livia ao passar o mouse */
 }
 
 /* Correção para o Cabeçalho (Header) */
 header nav {
-    flex-wrap: wrap;
-    /* Permite que os itens quebrem linha se não couberem */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha se não couberem */
     padding: 10px 15px;
     justify-content: space-between;
 }
@@ -963,19 +834,15 @@ header nav {
 @media (max-width: 768px) {
     .about-overlay {
         padding: 10px;
-        align-items: flex-start;
-        /* Alinha no topo para facilitar o scroll */
-        overflow-y: auto;
-        /* Permite rolar a tela de fundo se necessário */
+        align-items: flex-start; /* Alinha no topo para facilitar o scroll */
+        overflow-y: auto; /* Permite rolar a tela de fundo se necessário */
     }
 
     .about-modal {
         width: 92% !important;
-        margin: 20px auto;
-        /* Dá um respiro nas bordas */
+        margin: 20px auto; /* Dá um respiro nas bordas */
         padding: 25px 15px !important;
-        max-height: none;
-        /* Remove restrições de altura */
+        max-height: none; /* Remove restrições de altura */
         position: relative;
     }
 
@@ -993,7 +860,6 @@ header nav {
     }
 
     .specialties-grid {
-        display: block;
-        /* Lista simples no celular para não cortar */
+        display: block; /* Lista simples no celular para não cortar */
     }
 }
