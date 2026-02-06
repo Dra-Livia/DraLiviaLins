@@ -816,4 +816,56 @@ footer {
 
 .close:hover {
     color: #8b7355; /* Bronze da Dra. Livia ao passar o mouse */
+
+}
+
+/* ================= AJUSTES PARA CELULAR ================= */
+@media (max-width: 768px) {
+    /* 1. Ajuste do Texto Principal (Hero) */
+    .hero-content h1 {
+        font-size: 1.8rem !important; /* Diminui o título para não quebrar */
+        line-height: 1.2;
+    }
+
+    .hero-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* 2. Ajuste do Modal "Sobre Mim" */
+    .about-modal {
+        width: 95% !important; /* Ocupa quase a largura toda */
+        padding: 30px 20px !important; /* Diminui o respiro interno */
+        max-height: 90vh; /* Não deixa o modal ser maior que a tela */
+        overflow-y: auto; /* Permite rolar se o texto for longo */
+    }
+
+    .modal-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* 3. Ajuste das Imagens de Resultados */
+    .results-slider {
+        display: flex;
+        flex-direction: column; /* Coloca um embaixo do outro no celular */
+        gap: 20px;
+    }
+
+    .result-card {
+        width: 100% !important;
+    }
+
+    /* 4. Ajuste da Logo no Topo */
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
 }
