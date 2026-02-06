@@ -1,20 +1,53 @@
-/* Reset básico e Fontes */
+/* =========================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================= */
+:root {
+    /* Paleta de Cores */
+    --primary: #8b7355;       /* Bronze Principal */
+    --primary-dark: #6d5a43;  /* Bronze Escuro (Hover) */
+    --secondary: #2c3e50;     /* Azul Escuro (Textos Fortes) */
+    --text-body: #666666;     /* Cinza (Textos Gerais) */
+    --bg-light: #f9fbfd;      /* Fundo Claro */
+    --bg-white: #ffffff;
+    --success: #25d366;       /* WhatsApp */
+    --instagram-grad: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+    
+    /* Sombras e Bordas */
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+    --border-light: 1px solid rgba(139, 115, 85, 0.2);
+    
+    /* Fontes */
+    --font-main: 'Montserrat', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Header & Navegação */
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-body);
+    background-color: var(--bg-white);
+    overflow-x: hidden; /* Evita rolagem lateral indesejada */
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; }
+
+/* =========================================
+   2. HEADER & NAVEGAÇÃO
+   ========================================= */
 header {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px); /* Efeito de vidro */
     padding: 12px 5%;
     position: fixed;
     width: 100%;
@@ -27,107 +60,105 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.logo {
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
     font-weight: 700;
-    font-size: 1.5rem;
-    color: #2c3e50;
+    font-size: 1.4rem;
+    color: var(--secondary);
+    letter-spacing: -0.5px;
 }
 
 nav ul {
     display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 400;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #3498db;
-}
-
-/* Alinhamento da Logo no Header */
-.logo-container {
-    display: flex;
     align-items: center;
+    gap: 30px;
 }
 
-.logo-img {
-    height: 60px; /* Tamanho discreto e elegante para o menu */
-    width: auto;
-    object-fit: contain;
+/* Estilo para Botões que parecem Links (Semântico) */
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary);
+    transition: color 0.3s;
+    padding: 5px 0;
 }
 
-.logo-text {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px;
-    color: #8b7355;
+.nav-btn:hover {
+    color: var(--primary);
 }
 
-/* Container do link de contato */
+/* Container do Contato (Para o Popover) */
 .contact-wrapper {
     position: relative;
-    display: inline-block;
 }
 
-/* Estilo do Balão (Popover) */
+/* Balão de Contato (Popover) */
 .contact-popover {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: absolute;
-    top: 130%; /* Fica logo abaixo do texto */
+    top: 150%;
     right: 0;
     background: white;
-    padding: 12px 18px;
+    padding: 15px 20px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    z-index: 1000;
     border: 1px solid #f2e8df;
+    z-index: 1001;
+    min-width: 220px;
     animation: fadeIn 0.3s ease;
 }
 
-.contact-popover.active {
-    display: block;
-}
+.contact-popover.active { display: block; }
 
 .popover-content {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .phone-number {
-    font-weight: 600;
-    color: #2c3e50;
+    font-weight: 700;
+    color: var(--secondary);
     font-size: 1rem;
-    white-space: nowrap;
 }
 
-/* Botão de Copiar */
 .copy-btn {
-    background: #fdfaf7;
-    border: 1px solid #8b7355;
-    color: #8b7355;
-    padding: 6px 10px;
+    background: var(--bg-light);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    width: 32px;
+    height: 32px;
     border-radius: 6px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.2s;
 }
 
 .copy-btn:hover {
-    background: #8b7355;
+    background: var(--primary);
     color: white;
 }
 
-/* Setinha do balão */
 .popover-arrow {
     position: absolute;
     top: -6px;
@@ -145,6 +176,466 @@ nav ul li a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* =========================================
+   3. HERO SECTION (TOPO)
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    padding-top: 80px;
+    background-color: #f2e8df;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bg-name {
+    position: absolute;
+    font-size: clamp(5rem, 12vw, 15vw); 
+    font-weight: 900;
+    color: rgba(139, 115, 85, 0.05); 
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    
+
+    left: 36%;         
+    right: auto;      
+    top: 41%;
+    transform: translateY(-50%);
+    
+    white-space: nowrap; 
+    line-height: 1;
+    z-index: 1;      
+    pointer-events: none;
+    user-select: none;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    z-index: 2;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    color: var(--primary);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.btn-cta {
+    background-color: var(--primary);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 30px 0;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+}
+
+.btn-cta:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-dark);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid var(--primary);
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+/* Imagem Hero */
+.hero-image-wrapper {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-image: url("img/ft2.png"); /* Certifique-se do caminho */
+    background-size: cover;
+    background-position: top center;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+/* Gradiente na base da foto */
+.hero-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, #f2e8df 0%, transparent 100%);
+}
+
+/* =========================================
+   4. SEÇÃO TRATAMENTOS (CARROSSEL INFINITO)
+   ========================================= */
+#tratamentos {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 50px;
+}
+
+.especialidades-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Sombras laterais para dar efeito de infinito */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.especialidades-track {
+    display: flex;
+    width: max-content; /* Permite que cresça o quanto precisar */
+    gap: 30px;
+    animation: scroll-infinito 35s linear infinite;
+}
+
+.especialidades-track:hover {
+    animation-play-state: paused;
+}
+
+.especialidade-card {
+    width: 300px;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    border: 1px solid #f2e8df;
+    flex-shrink: 0; /* Impede amassar */
+    transition: transform 0.3s;
+}
+
+.especialidade-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.especialidade-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+@keyframes scroll-infinito {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+    /* Move -50% porque o JS duplicou a lista. Ao chegar na metade (o fim da lista original), ele reinicia. */
+}
+
+/* =========================================
+   5. RESULTADOS (SLIDER MANUAL)
+   ========================================= */
+#resultados {
+    padding: 100px 0;
+    background: white;
+    text-align: center;
+}
+
+#resultados .container {
+    position: relative;
+    padding: 0 50px; /* Espaço para as setas não ficarem em cima da foto */
+}
+
+.section-subtitle {
+    color: #999;
+    margin-bottom: 40px;
+    margin-top: -10px;
+}
+
+.results-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Isso permite o scroll lateral se não couberem todos */
+    padding: 20px 0;
+    scroll-snap-type: x mandatory; /* Faz a foto "travar" centralizada ao deslizar */
+    -webkit-overflow-scrolling: touch; /* Melhora o deslize no iPhone */
+}
+
+.result-card {
+    min-width: 280px; /* Diminuímos um pouco para caberem mais */
+    flex: 0 0 auto; /* Impede que o navegador amasse os cards */
+    scroll-snap-align: start;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.results-slider::-webkit-scrollbar { display: none; }
+
+.result-card:hover { transform: translateY(-5px); }
+
+.result-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.result-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.result-card:hover .result-image img { transform: scale(1.05); }
+
+.result-info { padding: 20px; text-align: left; }
+.result-info h3 { font-size: 1.1rem; color: var(--secondary); margin-bottom: 5px; }
+.result-info p { font-size: 0.9rem; color: #777; }
+
+/* Container pai para posicionamento */
+#resultados .container {
+    position: relative;
+    padding: 0 50px; /* Espaço para as setas não ficarem em cima da foto */
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #d1c4b9; 
+    border-radius: 50%;
+    transition: all 0.3s ease; 
+}
+
+.dot.active {
+    background-color: var(--primary); 
+    width: 25px; 
+    border-radius: 10px;
+}
+
+.nav-prev, .nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-prev { left: 0; }
+.nav-next { right: 0; }
+
+.nav-prev:hover, .nav-next:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* =========================================
+   6. MODAL SOBRE (OVERLAY)
+   ========================================= */
+.about-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.about-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.about-modal {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.about-overlay.active .about-modal { transform: scale(1); }
+
+.close-about-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-bg-logo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.modal-content { position: relative; z-index: 2; text-align: center; }
+.modal-content h3 { color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; }
+.modal-content p { margin-bottom: 15px; color: #444; text-align: justify; }
+
+/* =========================================
+   7. BOTÃO FLUTUANTE (FAB)
+   ========================================= */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+.fab-main {
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.fab-container:hover .fab-main {
+    transform: rotate(45deg);
+    background: var(--primary-dark);
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s;
+}
+
+.fab-container:hover .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.fab-button:hover { transform: scale(1.1); }
+.fab-whatsapp { background: var(--success); }
+.fab-instagram { background: var(--instagram-grad); }
+
+/* Tooltips do FAB */
+.fab-tooltip {
+    position: absolute;
+    right: 60px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.fab-button:hover .fab-tooltip { opacity: 1; }
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
 footer {
     background-color: #f2e8df; /* Bege da identidade visual */
     padding: 60px 10% 20px;
@@ -210,651 +701,109 @@ footer {
     color: #999;
 }
 
-/* Ajuste Mobile */
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .specialties-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.logo-text {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #2c3e50;
-    letter-spacing: -0.5px;
-}
-
-/* Alinhamento da Logo no Footer */
-.footer-logo {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-img-footer {
-    height: 60px; /* Um pouco maior no rodapé */
-    width: auto;
-    /* filter: grayscale(1) brightness(0.5); Opcional: deixa a logo sutil no rodapé */
-}
-
-/* Hero Section (Topo) */
-.hero {
-    height:100vh;   
-    padding-top: 80px;
-    background-color: #f2e8df;
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    overflow: hidden;
-}
-
-/* Nome gigante ao fundo */
-.bg-name {
-    position: absolute;
-    font-size: 15vw;
-    font-weight: 900;
-    color: rgba(139, 115, 85, 0.05);
-    writing-mode: vertical-rl;
-    z-index: 1;
-    margin-top: 3%;
-}
-
-.hero-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Garante espaço para o texto e foto */
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 5%;
-    z-index: 5;
-    align-items: center;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: #8b7355;
-    line-height: 1.1;
-    margin-bottom: 25px;
-}
-
-.btn-cta {
-    background-color: #a68b6d;
-    color: white;
-    padding: 18px 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin: 30px 0;
-    transition: 0.3s;
-}
-
-.btn-cta:hover{
-       transform: scale(1.1);
-}
-
-.hero-stats {
-    display: flex;
-    gap: 30px;
-    background: rgba(166, 139, 109, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    color: white;
-}
-
-/* Ajuste da Imagem */
-.hero-image-wrapper {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    overflow: visible;
-}
-
-/* IMAGEM PRINCIPAL */
-.hero-image {
-    width: 520px;
-    height: 95vh;
-    background-image: url("img/ft2.png");
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    margin-right: -30%;
-    margin-bottom: -40px;
-}
-
-/* GRADIENTE QUE “DERRETE” A FOTO NO FUNDO */
-.hero-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 102%;
-    margin-right: -30%;
-
-    background: linear-gradient(
-        to right,
-        rgba(242,232,223,0) 0%,
-        rgba(242,232,223,0.2) 25%,
-        rgba(242,232,223,0.6) 50%,
-        #f2e8df 85%
-    );
-
-    pointer-events: none;
-}
-
-/* Responsividade */
-@media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-image-wrapper { display: none; } /* Esconde imagem no mobile para não buggar */
-    .hero-stats { flex-direction: column; gap: 10px; }
-}
-
-
-
-/* Garante que o fundo escuro cubra tudo mesmo fora do header */
-.about-overlay {
+/* =========================================
+   9. LIGHTBOX (VISUALIZADOR DE FOTO)
+   ========================================= */
+#image-viewer {
     display: none;
     position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(8px);
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-overlay.active {
-    display: flex;
-}
-/* A Janela Centralizada */
-.about-modal {
-    position: relative;
-    background: #fff;
-    width: 90%;
-    max-width: 600px;
-    padding: 50px;
-    border-radius: 25px;
-}
-
-/* Logo LL Transparente ao Fundo */
-.modal-bg-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    opacity: 0.12; /* Quase invisível, apenas textura */
-    z-index: 1;
-    pointer-events: none;
-}
-
-.modal-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.modal-content h3 {
-    color: #8b7355;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.modal-content p {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-/* Botão de Fechar */
-.close-about {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: #8b7355; /* Bronze da marca */
-    cursor: pointer;
-    z-index: 99;
-    transition: transform 0.2s, color 0.2s;
-    line-height: 1;
-}
-
-.close-about-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #8b7355;
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.close-about:hover {
-    color: #333;
-    transform: scale(1.1);
-}
-
-/* Ajuste no Overlay para o JS funcionar */
-.about-overlay.force-hide {
-    display: none !important;
-}
-
-.about-wrapper:hover .about-overlay:not(.force-hide) {
-    display: flex;
-}
-/* Animação de Surgimento */
-@keyframes modalPop {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Fechar no Mobile (X) */
-.close-modal {
-    display: none; /* Só aparece se quiser forçar o clique para fechar */
-}
-
-/* Botão WhatsApp */
-.btn-whatsapp {
-    background-color: #25d366;
-    color: white;
-    padding: 18px 35px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    transition: 0.3s;
-}
-
-.btn-whatsapp:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-}
-
-#tratamentos {
-    padding: 80px 0;
-    background-color: #f9fbfd;
-    overflow: hidden; /* Garante que nada saia da tela */
-}
-
-#tratamentos .section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.especialidades-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-}
-
-/* O "Trilho" que contém todos os 16 cards em linha */
-.especialidades-track {
-    display: flex; /* Força os cards a ficarem um ao lado do outro */
-    width: max-content; /* Faz o container ter a largura exata da soma dos cards */
-    animation: scroll-infinito 40s linear infinite;
-}
-
-/* Pausa suave ao passar o mouse */
-.especialidades-track:hover {
-    animation-play-state: paused;
-}
-
-.especialidade-card {
-    width: 320px; /* Largura fixa para o cálculo funcionar */
-    margin: 0 15px; /* Espaçamento lateral */
-    flex-shrink: 0; /* IMPEDE que o navegador esprema os cards */
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    text-align: center;
-    border: 1px solid #f2e8df;
-}
-
-/* Ajuste das cores que estavam azuis nas imagens anteriores */
-.especialidade-card h3 {
-    color: #8b7355 !important; /* Força o bronze da marca */
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.especialidade-card p {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* ANIMAÇÃO DO MOVIMENTO */
-@keyframes scroll-infinito {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Move exatamente a largura de 8 cards (a metade do total) */
-        /* Card (320px) + Margens (30px) = 350px por item */
-        transform: translateX(calc(-350px * 8));
-    }
-}
-
-
-#resultados {
-    padding: 100px 5%;
-    background-color: #fff;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    color: #8b7355; /* Bronze da marca */
-    margin-bottom: 10px;
-}
-
-.section-subtitle {
-    color: #666;
-    margin-bottom: 50px;
-    font-style: italic;
-}
-
-.results-slider {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto; /* Permite scroll lateral no mobile */
-    padding-bottom: 30px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Esconde scroll no Firefox */
-}
-
-.results-slider::-webkit-scrollbar { display: none; } /* Esconde scroll no Chrome/Safari */
-
-.result-card {
-    background: #fff;
-    border: 1px solid #f2e8df;
-    transition: all 0.4s ease;
-}
-.result-card:hover {
-    transform: translateY(-10px);
-}
-
-.result-image img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-bottom: 3px solid #f2e8df;
-}
-.result-card img {
-    filter: brightness(0.95); /* Deixa a foto mais integrada ao site */
-    transition: 0.4s;
-}
-.result-card:hover img {
-    filter: brightness(1);
-    transform: scale(1.02);
-}
-
-.result-info {
-    padding: 25px;
-    text-align: left;
-}
-
-.result-info h3 {
-    color: #2c3e50;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.result-info p {
-    color: #777;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-@media (max-width: 768px) {
-    .result-card {
-        min-width: 85vw;
-    }
-}
-
-/* Container do Botão Flutuante */
-.fab-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 15px;
-    padding-top: 20px; /* Área de segurança para o mouse */
-}
-
-/* Botão Principal (+) */
-.fab-main {
-    width: 60px;
-    height: 60px;
-    background-color: #8b7355;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.fab-container:hover .fab-main {
-    transform: rotate(45deg);
-    background-color: #6d5a43;
-}
-
-/* Opções que aparecem (Insta e Whats) */
-.fab-options {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 15px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação mais fluida */
-}
-
-.fab-container:hover .fab-options {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.fab-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-}
-
-.fab-button:hover {
-    transform: scale(1.1);
-}
-
-.fab-whatsapp { background-color: #25d366; }
-.fab-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-
-/* Estilização do Balão (Tooltip) */
-.fab-tooltip {
-    position: absolute;
-    right: 70px; /* Joga o balão para a esquerda do botão */
-    background-color: #25d366; /* Cor do WhatsApp */
-    color: white;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap; /* Impede o texto de quebrar linha */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.3s ease;
-    pointer-events: none; /* O mouse ignora o balão e foca no botão */
-}
-
-/* Triângulo do balão (a pontinha) */
-.fab-tooltip::after {
-    content: "";
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 6px solid #25d366;
-}
-
-/* Mostrar o balão quando o menu expandir */
-.fab-container:hover .fab-tooltip {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Ajuste de posição relativo para o botão conter o balão */
-.fab-whatsapp {
-    position: relative;
-}
-
-/* Posicionamento relativo para os botões segurarem os balões */
-.fab-button {
-    position: relative;
-}
-
-/* Balão específico do Instagram com seletor mais forte */
-.fab-button.fab-instagram .fab-tooltip {
-    background: linear-gradient(45deg, #f09433 0%, #dc2743 50%, #bc1888 100%);
-}
-
-/* Ajuste da setinha (triângulo) do balão do Instagram */
-.fab-button.fab-instagram .fab-tooltip::after {
-    border-left-color: #d12d4a; /* Cor sólida para combinar com o final do gradiente */
-}
-
-/* Balão do WhatsApp (mantém o verde) */
-.fab-button.fab-whatsapp .fab-tooltip {
-    background-color: #25d366;
-}
-
-.fab-button.fab-whatsapp .fab-tooltip::after {
-    border-left-color: #25d366;
-}
-
-/* Estilo do Visualizador de Imagem */
-#image-viewer {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    z-index: 10001; /* Acima do botão de WhatsApp */
-    padding-top: 50px;
+    z-index: 5000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.9); /* Fundo preto opaco */
+    background-color: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
     cursor: zoom-out;
 }
 
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 10px;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+#image-viewer .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 5px;
+    transform: scale(0);
+    transition: transform 0.3s ease-out;
 }
 
-@keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
-}
-
-.close {
+#image-viewer .close {
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 35px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
     cursor: pointer;
+    transition: 0.3s;
+    z-index: 5001;
 }
 
-.close:hover {
-    color: #8b7355; /* Bronze da Dra. Livia ao passar o mouse */
-}
+#image-viewer .close:hover { color: var(--primary); }
 
-@media (max-width: 768px) {
-    header { padding: 10px 2%; }
-    
-    .logo-text { font-size: 1rem; }
-    
-    nav ul li { margin-left: 10px; }
+/* =========================================
+   10. RESPONSIVIDADE (CONSOLIDADA)
+========================================= */
 
+/* Tablets e Telas Médias */
+@media (max-width: 992px) {
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 40px;
     }
-
-    .hero-image-wrapper {
-        order: -1; /* Imagem aparece antes do texto no celular se quiser */
-        justify-content: center;
-    }
-
-    .hero-image {
-        height: 40vh;
-        margin-bottom: 20px;
-    }
-
+    
+    .hero-image-wrapper { height: 50vh; }
+    
+    .bg-name { display: none; } 
+    
     .hero-stats {
         justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
+}
 
-    .about-modal {
-        padding: 30px 20px;
-    }
+/* Celulares (Abaixo de 768px) */
+@media (max-width: 768px) {
+    /* Menu e Tipografia */
+    nav ul { gap: 15px; }
+    .logo-text { display: none; }
+    .section-title { font-size: 2rem; }
+    
+    /* Sobre Mim */
+    .about-modal { padding: 30px 20px; }
 
-    .close-about-btn {
-        top: 10px;
-        right: 10px;
+    /* Tratamentos e Grades */
+    .specialties-grid { grid-template-columns: 1fr; }
+
+    /* --- CARROSSEL DE RESULTADOS (O PONTO CHAVE) --- */
+    .results-slider {
+        padding-right: 20px;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
     }
 
     .result-card {
-        min-width: 85vw; /* Card quase ocupa a tela toda no celular */
+        flex: 0 0 80%; /* Peek Effect: Mostra 80% do card atual e um pedaço do próximo */
+        min-width: unset; /* Remove o min-width antigo para o flex 80% funcionar */
+        margin-right: 15px;
     }
+
+    /* Esconde as setas e ajusta o respiro lateral */
+    .nav-prev, .nav-next { display: none; }
+    #resultados .container { padding: 0 5%; }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+/* Ajustes para Telas Grandes (Desktop) */
+@media (min-width: 769px) {
+    .slider-dots { display: none; }
+    .swipe-hint { display: none; }
 }
