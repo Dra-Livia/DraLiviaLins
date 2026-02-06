@@ -869,3 +869,49 @@ footer {
         height: 35px;
     }
 }
+
+/* Correção para o Cabeçalho (Header) */
+header nav {
+    flex-wrap: wrap; /* Permite que os itens quebrem linha se não couberem */
+    padding: 10px 15px;
+    justify-content: space-between;
+}
+
+.logo-container {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Ajuste do Modal Sobre Mim para Celulares */
+@media (max-width: 768px) {
+    .about-overlay {
+        padding: 10px;
+        align-items: flex-start; /* Alinha no topo para facilitar o scroll */
+        overflow-y: auto; /* Permite rolar a tela de fundo se necessário */
+    }
+
+    .about-modal {
+        width: 92% !important;
+        margin: 20px auto; /* Dá um respiro nas bordas */
+        padding: 25px 15px !important;
+        max-height: none; /* Remove restrições de altura */
+        position: relative;
+    }
+
+    /* Garante que o texto principal não fique gigante */
+    .hero-content h1 {
+        font-size: 1.6rem !important;
+        line-height: 1.3;
+    }
+
+    /* Ajuste do Rodapé (Footer) */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .specialties-grid {
+        display: block; /* Lista simples no celular para não cortar */
+    }
+}
