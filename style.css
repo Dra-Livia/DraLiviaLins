@@ -152,45 +152,94 @@ nav ul li a:hover {
     margin-right: -30%;
 }
 
-/* =========================
-   MODAL SOBRE
-========================= */
+/* ===== OVERLAY ===== */
 .about-overlay {
-    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
-    z-index: 10000;
-    justify-content: center;
+    display: none;
     align-items: center;
+    justify-content: center;
+    z-index: 999999;
 }
 
 .about-overlay.active {
     display: flex;
 }
 
+/* ===== MODAL ===== */
 .about-modal {
+    position: relative;
     background: #fff;
     width: 90%;
     max-width: 600px;
-    padding: 50px;
+    padding: 50px 40px;
     border-radius: 25px;
-    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    animation: modalPop 0.3s ease-out;
 }
 
+/* ===== LOGO DE FUNDO ===== */
+.modal-bg-logo {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 80%;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* ===== CONTEÚDO ===== */
+.modal-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #8b7355;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* ===== BOTÃO FECHAR ===== */
 .close-about-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: #8b7355;
-    color: white;
+    color: #fff;
+    font-size: 26px;
     border: none;
-    font-size: 24px;
     cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.close-about-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* =========================
@@ -226,68 +275,53 @@ footer {
     color: #999;
 }
 
+.procedimento-card {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.procedimento-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+
 /* =========================
    MOBILE PREMIUM
 ========================= */
 @media (max-width: 768px) {
 
-    /* HEADER */
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav ul {
-        gap: 25px;
-    }
-
     /* HERO */
     .hero {
-        height: auto;
-        padding: 120px 20px 50px;
+        flex-direction: column;
+        padding: 40px 20px;
         text-align: center;
     }
 
-    .hero-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+    .hero img {
+        width: 100%;
+        max-width: 320px;
+        margin: 30px auto 0;
     }
 
-    .hero-content h1 {
-        font-size: 1.9rem;
-        line-height: 1.3;
-    }
-
-    .hero-stats {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    /* IMAGEM DA MÉDICA */
-    .hero-image-wrapper {
-        justify-content: center;
-    }
-
-    .hero-image {
-        width: 230px;
-        height: 230px;
-        border-radius: 50%;
-        margin: 0;
-        background-position: center;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    /* PROCEDIMENTOS */
+    .procedimentos-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
     /* MODAL */
     .about-modal {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
-    /* FOOTER */
-    .footer-container {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .modal-content p {
+        font-size: 1rem;
     }
 }
